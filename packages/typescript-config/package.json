@@ -1,0 +1,9 @@
+{
+  "name": "@workspace/typescript-config",
+  "version": "1.0.0",
+  "main": "tsconfig.json",
+  "private": true,
+  "devDependencies": {
+    "tsconfig-paths": "^4.2.0"
+  }
+}
