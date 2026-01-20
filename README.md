@@ -13,6 +13,7 @@ This project follows a monorepo architecture to share UI components and configur
 
 ```bash
 .
+├── docs/             # ai agent skills
 ├── apps/
 │   ├── portfolio/    # Main entry point (Next.js app)
 │   ├── blog/         # Tech blog & TIL logs
