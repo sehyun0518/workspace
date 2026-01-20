@@ -42,3 +42,7 @@ pnpm-debug.log*
 # Operating system files
 .DS_Store
 Thumbs.db
+
+# environment files
+.env
+.env.local
