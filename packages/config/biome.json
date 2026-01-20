@@ -1,0 +1,177 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.3.11/schema.json",
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": {
+          "level": "on",
+          "options": {
+            "groups": [
+              ["**/__mocks__/**", "**/bookingScenario*"],
+              [":PACKAGE_WITH_PROTOCOL:", ":PACKAGE:"],
+              "~/**",
+              ":PATH:"
+            ]
+          }
+        }
+      }
+    },
+    "enabled": true
+  },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    }
+  },
+  "formatter": {
+    "includes": [
+      "**/*",
+      "!packages/ui/components/icon/dynamicIconImports.tsx",
+      "!apps/api/v1/tests",
+      "!apps/api/v1/templates"
+    ],
+    "lineWidth": 110,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf"
+  },
+  "files": {
+    "includes": [
+      "**/*",
+      "!!**/node_modules",
+      "!!**/.next",
+      "!!**/.turbo",
+      "!!**/dist",
+      "!!**/build",
+      "!!**/public",
+      "!!**/*.d.ts",
+      "!!public",
+      "!!*.lock",
+      "!!*.log",
+      "!!.gitignore",
+      "!!.npmignore",
+      "!!.prettierignore",
+      "!!.eslintignore",
+      "!!.DS_Store",
+      "!!coverage",
+      "!!lint-results",
+      "!!test-results"
+    ]
+  },
+  "javascript": {
+    "parser": {
+      "unsafeParameterDecoratorsEnabled": true
+    },
+    "formatter": {
+      "arrowParentheses": "always",
+      "bracketSpacing": true,
+      "bracketSameLine": true,
+      "quoteStyle": "double",
+      "jsxQuoteStyle": "double",
+      "semicolons": "always",
+      "trailingCommas": "es5"
+    }
+  },
+  "linter": {
+    "enabled": true,
+    "domains": {
+      "next": "recommended",
+      "react": "recommended"
+    },
+    "rules": {
+      "recommended": true,
+      "a11y": "off"
+    }
+  },
+  "overrides": [
+    {
+      "includes": ["**/*.tsx"],
+      "javascript": {
+        "jsxRuntime": "transparent"
+      }
+    },
+    {
+      "includes": ["**/*"],
+      "linter": {
+        "rules": {
+          "nursery": {
+            "useQwikValidLexicalScope": "off",
+            "useExplicitType": "info",
+            "noReactForwardRef": "warn",
+            "noTernary": "info",
+            "noUnresolvedImports": "warn",
+            "useSortedClasses": {
+              "level": "warn",
+              "options": {
+                "attributes": ["className", "classList"],
+                "functions": ["clsx", "cva", "cn", "tw"]
+              }
+            }
+          },
+          "correctness": {
+            "useImportExtensions": "warn",
+            "noProcessGlobal": "warn",
+            "useExhaustiveDependencies": "warn",
+            "noUnknownProperty": "warn",
+            "noUnreachable": "warn",
+            "noEmptyPattern": "warn",
+            "noSwitchDeclarations": "warn",
+            "useHookAtTopLevel": "warn",
+            "useJsxKeyInIterable": "warn",
+            "noUnsafeOptionalChaining": "warn"
+          },
+          "style": {
+            "useExportsLast": "warn",
+            "noProcessEnv": "warn",
+            "useNodejsImportProtocol": "error",
+            "noNestedTernary": "warn"
+          },
+          "complexity": {
+            "noExcessiveLinesPerFunction": {
+              "level": "warn",
+              "options": {
+                "maxLines": 100,
+                "skipBlankLines": true
+              }
+            }
+          },
+          "performance": {
+            "noImgElement": "warn"
+          },
+          "suspicious": {
+            "noDoubleEquals": "warn",
+            "noAssignInExpressions": "warn",
+            "noExplicitAny": "warn",
+            "useIterableCallbackReturn": "warn",
+            "noImplicitAnyLet": "warn",
+            "noRedeclare": "warn",
+            "noControlCharactersInRegex": "warn",
+            "noArrayIndexKey": "warn",
+            "noShadowRestrictedNames": "warn",
+            "noAsyncPromiseExecutor": "warn"
+          },
+          "security": {
+            "noBlankTarget": "warn",
+            "noDangerouslySetInnerHtml": "warn"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "**/*.test.ts",
+        "**/*.test.tsx",
+        "**/*.e2e-spec.ts",
+        "**/*.integration-test.ts"
+      ],
+      "linter": {
+        "rules": {
+          "complexity": {
+            "useArrowFunction": "off",
+            "noExcessiveLinesPerFunction": "off"
+          }
+        }
+      }
+    }
+  ]
+}
