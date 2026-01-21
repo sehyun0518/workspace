@@ -97,9 +97,9 @@
         "rules": {
           "nursery": {
             "useQwikValidLexicalScope": "off",
-            "useExplicitType": "info",
+            "useExplicitType": "off",
             "noReactForwardRef": "warn",
-            "noTernary": "info",
+            "noTernary": "off",
             "noUnresolvedImports": "warn",
             "useSortedClasses": {
               "level": "error",
