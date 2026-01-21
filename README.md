@@ -15,12 +15,9 @@ This project follows a monorepo architecture to share UI components and configur
 .
 ├── docs/             # ai agent skills
 ├── apps/
-│   ├── portfolio/    # Main entry point (Next.js app)
-│   ├── blog/         # Tech blog & TIL logs
-│   └── projects/     # Experimental React apps
+│   └── main-app/    # Main entry point (Next.js app)
 ├── packages/
-│   ├── ui/           # Shared UI component library
-│   ├── config/       # Shared TSConfig & ESLint settings
-│   └── utils/        # Common utility functions
+│   └── typescript-config/ # Shared TSConfig
 ├── pnpm-workspace.yaml
 └── package.json
+```
