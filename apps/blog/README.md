@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Personal Blog
 
-## Getting Started
+![Next.js](https://img.shields.io/badge/framework-Next.js_16-black)
+![React](https://img.shields.io/badge/library-React_19-blue)
+![TypeScript](https://img.shields.io/badge/language-TypeScript-3178C6)
+![Tailwind CSS](https://img.shields.io/badge/style-Tailwind_CSS_v4-38B2AC)
+![FSD](https://img.shields.io/badge/architecture-Feature_Sliced_Design-orange)
 
-First, run the development server:
+A modern, high-performance blog application built with **Next.js 16** and **React 19**, featuring a modular **Feature-Sliced Design (FSD)** architecture for scalability and maintainability.
+
+## 📝 Description
+
+This application serves as a personal content platform. It leverages the latest web technologies to provide a fast, accessible, and seo-friendly reading experience. The architecture is explicitly designed to handle growing complexity through strict separation of concerns using FSD principles.
+
+**Key Features:**
+- **Next.js 16 App Router:** Utilizes Server Components and the latest routing paradigms.
+- **Feature-Sliced Design:** Modular architecture (`widgets`, `features`, `entities`) for better code organization.
+- **Modern UI:** Styled with **Tailwind CSS v4** and **Lucide React** icons.
+- **Testing Ready:** Configured with **Vitest** for unit and component testing.
+
+## 📂 Structure
+
+This project follows [Feature-Sliced Design](https://feature-sliced.design/) principles:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+src/
+├── app/          # Next.js App Router (Routing & Layouts)
+├── widgets/      # Compositional layers (composition of features & entities)
+├── features/     # User interactions (business logic)
+├── entities/     # Business entities (data model)
+├── shared/       # Reusable infrastructure code (UI kit, libs)
+└── lib/          # Global utilities
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📦 Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This app is part of a pnpm workspace.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Navigate to the workspace root:**
+   ```bash
+   cd ../..
+   ```
 
-## Learn More
+2. **Install dependencies:**
+   ```bash
+   pnpm install
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+## ⚡ Quick Start
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To run this application strictly from the root:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+pnpm --filter blog dev
+```
 
-## Deploy on Vercel
+Or, if you are inside the `apps/blog` directory:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+pnpm dev
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Open [http://localhost:3000](http://localhost:3000) (or the next available port) to view the blog.
+
+## 🛠 Development
+
+### Scripts
+
+| Command | Description |
+|---------|-------------|
+| `pnpm dev` | Starts the development server. |
+| `pnpm build` | Builds the application for production. |
+| `pnpm start` | Starts the production server. |
+| `pnpm lint` | Runs ESLint checks. |
+| `pnpm test` | Runs tests using Vitest (if configured in scripts). |
+
+### Testing
+
+This application uses **Vitest** for testing.
+
+```bash
+# Run tests
+pnpm --filter blog test
+```
+
+## ⚙️ Configuration
+
+- **Next.js:** `next.config.ts`
+- **Tailwind:** `tailwind.config.ts` (imports shared config from `packages/tailwind-config`)
+- **TypeScript:** `tsconfig.json` (extends `packages/typescript-config/next.json`)
+
+## 🤝 Contributing
+
+Contributions are managed through the monorepo root. Please ensure you follow the FSD architectural guidelines when adding new components or features.
+
+1. **Shared UI** goes to `shared/components/ui`.
+2. **Business Logic** related to a specific domain goes to `entities`.
+3. **User Actions** go to `features`.
+4. **Complex Blocks** go to `widgets`.
+
+## 📄 License
+
+Part of the workspace licensed under **ISC**.

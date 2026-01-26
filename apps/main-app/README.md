@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Main Gateway App
 
-## Getting Started
+![Next.js](https://img.shields.io/badge/framework-Next.js_16-black)
+![React](https://img.shields.io/badge/library-React_19-blue)
+![TypeScript](https://img.shields.io/badge/language-TypeScript-3178C6)
+![Tailwind CSS](https://img.shields.io/badge/style-Tailwind_CSS_v4-38B2AC)
 
-First, run the development server:
+The central gateway/landing application for the monorepo workspace.
+
+## 📝 Description
+
+This application serves as the main entry point for the personal web presence. It routes users to different sub-applications (like the Blog or Portfolio) or serves as the primary landing page depending on the deployment strategy.
+
+**Key Features:**
+- **Next.js 16:** Leveraging the latest App Router features.
+- **Lightweight:** Designed to be a fast, minimal entry point.
+- **Tailwind CSS v4:** Consistent styling with the rest of the workspace.
+
+## 📂 Structure
+
+Minimal Next.js structure:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+src/
+├── app/          # App Router pages
+└── components/   # Application-specific components (e.g., Header)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📦 Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This app is part of a pnpm workspace.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Navigate to the workspace root:**
+   ```bash
+   cd ../..
+   ```
 
-## Learn More
+2. **Install dependencies:**
+   ```bash
+   pnpm install
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+## ⚡ Quick Start
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To run this application strictly from the root:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+pnpm --filter main-app dev
+```
 
-## Deploy on Vercel
+Or, if you are inside the `apps/main-app` directory:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+pnpm dev
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Open [http://localhost:3000](http://localhost:3000) (or the next available port).
+
+## 🛠 Development
+
+### Scripts
+
+| Command | Description |
+|---------|-------------|
+| `pnpm dev` | Starts the development server. |
+| `pnpm build` | Builds the application for production. |
+| `pnpm start` | Starts the production server. |
+| `pnpm lint` | Runs ESLint checks. |
+
+## ⚙️ Configuration
+
+- **Next.js:** `next.config.ts`
+- **Tailwind:** `tailwind.config.ts` (imports shared config from `packages/tailwind-config`)
+- **TypeScript:** `tsconfig.json` (extends `packages/typescript-config/next.json`)
+
+## 📄 License
+
+Part of the workspace licensed under **ISC**.
