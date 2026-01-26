@@ -38,6 +38,8 @@ export function ProjectSection() {
               style={{ transitionDelay: `${(index + 1) * 100}ms` }}>
               <div className="relative mb-4 aspect-3/2 overflow-hidden rounded-lg bg-muted">
                 <Image
+                  width={1024}
+                  height={1024}
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
