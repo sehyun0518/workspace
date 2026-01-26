@@ -1,6 +1,11 @@
+"use client";
+
 import Link from "next/link";
+import { useLanguage } from "@/context/language-context";
 
 export function Header() {
+  const { language, setLanguage, t } = useLanguage();
+
   return (
     <header className="flex items-center justify-between p-6">
       <div className="flex space-x-2">
@@ -10,17 +15,17 @@ export function Header() {
         </Link>
       </div>
       <div className="flex items-center space-x-6">
-        <button className="text-sm">EN</button>
+        <button
+          className="font-medium text-sm uppercase hover:opacity-70"
+          onClick={() => setLanguage(language === "en" ? "ko" : "en")}>
+          {language === "en" ? "KO" : "EN"}
+        </button>
         <Link href="/blog" className="text-sm hover:underline">
-          BLOG
+          {t.header.blog}
         </Link>
         <Link href="/portfolio" className="text-sm hover:underline">
-          PORTFOLIO
+          {t.header.portfolio}
         </Link>
-        <button className="flex flex-col space-y-1">
-          <span className="h-0.5 w-6 bg-white"></span>
-          <span className="h-0.5 w-6 bg-white"></span>
-        </button>
       </div>
     </header>
   );

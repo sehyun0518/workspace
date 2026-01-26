@@ -1,6 +1,11 @@
+"use client";
+
 import Link from "next/link";
+import { useLanguage } from "@/context/language-context";
 
 export default function Home() {
+  const { t } = useLanguage();
+
   return (
     <main className="relative min-h-screen px-6 pt-12">
       {/* Gradient blob */}
@@ -10,10 +15,8 @@ export default function Home() {
       />
 
       <div className="relative mx-auto max-w-5xl">
-        <h1 className="max-w-3xl font-light text-6xl leading-tight tracking-tight">
-          SEHYUN&rsquo;s
-          <br />
-          DIGITAL WORKSPACE.
+        <h1 className="max-w-3xl whitespace-pre-line font-light text-6xl leading-tight tracking-tight">
+          {t.hero.title}
         </h1>
 
         <div className="mt-24 grid gap-8 md:grid-cols-2">
@@ -22,13 +25,11 @@ export default function Home() {
             href="/blog"
             className="group relative flex h-80 flex-col justify-between rounded-3xl border border-gray-200 bg-white/50 p-8 backdrop-blur-sm transition-all hover:-translate-y-1 hover:shadow-xl">
             <div>
-              <h2 className="font-light text-3xl">BLOG</h2>
-              <p className="mt-4 text-gray-600">
-                Insights, tutorials, and thoughts on web development and design.
-              </p>
+              <h2 className="font-light text-3xl">{t.hero.blog.title}</h2>
+              <p className="mt-4 text-gray-600">{t.hero.blog.description}</p>
             </div>
             <div className="flex items-center justify-between border-gray-200 border-t pt-6">
-              <span className="font-medium text-sm">EXPLORE</span>
+              <span className="font-medium text-sm">{t.hero.blog.action}</span>
               <span className="rounded-full bg-black p-2 text-white transition-transform group-hover:rotate-45">
                 <svg
                   width="16"
@@ -50,13 +51,11 @@ export default function Home() {
             href="/portfolio"
             className="group relative flex h-80 flex-col justify-between rounded-3xl border border-gray-200 bg-white/50 p-8 backdrop-blur-sm transition-all hover:-translate-y-1 hover:shadow-xl">
             <div>
-              <h2 className="font-light text-3xl">PORTFOLIO</h2>
-              <p className="mt-4 text-gray-600">
-                Showcase of my best projects, experiments, and creative works.
-              </p>
+              <h2 className="font-light text-3xl">{t.hero.portfolio.title}</h2>
+              <p className="mt-4 text-gray-600">{t.hero.portfolio.description}</p>
             </div>
             <div className="flex items-center justify-between border-gray-200 border-t pt-6">
-              <span className="font-medium text-sm">VIEW WORKS</span>
+              <span className="font-medium text-sm">{t.hero.portfolio.action}</span>
               <span className="rounded-full bg-black p-2 text-white transition-transform group-hover:rotate-45">
                 <svg
                   width="16"
@@ -76,11 +75,7 @@ export default function Home() {
 
         <div className="mt-24 flex justify-between pb-12">
           <div className="max-w-md">
-            <p className="text-gray-600 text-sm leading-relaxed">
-              CRAFTING DIGITAL EXPERIENCES
-              <br />
-              WITH NEXT.JS ECOSYSTEM
-            </p>
+            <p className="whitespace-pre-line text-gray-600 text-sm leading-relaxed">{t.hero.footer}</p>
           </div>
         </div>
       </div>
