@@ -1,12 +1,11 @@
 "use client";
 
 import { createContext, type ReactNode, useContext, useEffect, useState } from "react";
-import { type Language, translations } from "@/constants/translations";
+
+type Language = "en" | "ko";
 
 type LanguageContextType = {
   language: Language;
-  setLanguage: (lang: Language) => void;
-  t: typeof translations.en;
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -18,20 +17,13 @@ export function LanguageProvider({
   children: ReactNode;
   initialLanguage?: Language;
 }) {
-  const [language, setLanguage] = useState<Language>(initialLanguage);
+  const [language] = useState<Language>(initialLanguage);
 
   useEffect(() => {
     document.documentElement.lang = language;
-    document.cookie = `NEXT_LOCALE=${language}; path=/; max-age=31536000; SameSite=Lax`;
   }, [language]);
 
-  const value = {
-    language,
-    setLanguage,
-    t: translations[language],
-  };
-
-  return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
+  return <LanguageContext.Provider value={{ language }}>{children}</LanguageContext.Provider>;
 }
 
 export function useLanguage() {
