@@ -98,7 +98,7 @@
           "nursery": {
             "useQwikValidLexicalScope": "off",
             "useExplicitType": "off",
-            "noReactForwardRef": "warn",
+            "noReactForwardRef": "off",
             "noTernary": "off",
             "noUnresolvedImports": "warn",
             "useSortedClasses": {
@@ -123,7 +123,7 @@
             "noUnsafeOptionalChaining": "warn"
           },
           "style": {
-            "useExportsLast": "warn",
+            "useExportsLast": "off",
             "noProcessEnv": "warn",
             "useNodejsImportProtocol": "error",
             "noNestedTernary": "warn"
